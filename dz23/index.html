@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>JAVASCRIPT</title>
+  
+</head>
+
+<body>
+  <script>
+       
+
+		let result = new Promise(function (res, rej) {
+        	let xhr = new XMLHttpRequest();
+			xhr.open('GET', 'https://playwithpromise.herokuapp.com/api/order-system');
+
+
+			xhr.send()
+
+			xhr.onload = (function (){
+				if (xhr.status === 200) {
+					res( xhr.responseText)
+	  			}
+	  		})
+		}).then(data => {
+
+            let filter = JSON.parse(data);
+            let name = [];
+            let image = [];
+            let desc = [];
+
+            for (key of filter) {
+
+                name.push(key.productName);
+                image.push(key.productImage);
+                desc.push(key.productDescription);
+
+
+            }
+
+            let PaternD = document.createElement("div");
+            let ImageD = document.createElement("div");
+            let NameD = document.createElement("div");
+            let DescD = document.createElement("div");
+            document.body.append(PaternD);
+            PaternD.append(ImageD);
+            PaternD.append(NameD);
+            PaternD.append(DescD);
+            
+            ImageD.innerHTML = image;
+            NameD.innerHTML = name;
+            DescD.innerHTML = desc;
+
+
+        })
+    </script>
+</body>
+
+</html>
