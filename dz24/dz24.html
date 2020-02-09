@@ -9,8 +9,7 @@ DOCTYPE html>
 		console.log(/[a-z0-9]*@(gmail|mail)\.(com|ru)$/.test("inokentiiivanov@gmail.com"));
 		console.log(/[a-z0-9]*@(gmail|mail)\.(com|ru)$/.test("boriapetrov@mail.ru"));
 		console.log("/person/10".replace(/^(\/[a-z]*\/)/, ""));
-		console.log('/person/10/device/90'.replace(/^(\/[a-z]*\/\d+\/[a-z]*\/)/, ''));//90
-		console.log("/person/10/device/90".replace(/^(\/[a-z]*\/(\d+)\/[a-z]*\/\d+)/, "$2"));//10
+		console.log("/person/10/device/90".replace(/^(\/[a-z]*\/(\d+)\/[a-z]*\/(\d+))/, "$2,$3"));//10,90
 		console.log(/^[0-9][g|h|t|x]$/.test("5g"));
 	</script>
 </body>
